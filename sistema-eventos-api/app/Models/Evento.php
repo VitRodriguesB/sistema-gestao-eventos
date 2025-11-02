@@ -23,4 +23,8 @@ class Evento extends Model
         'valor_inscricao',
         'chave_pix',
     ];
+    public function inscricoes()
+     {
+        return $this->hasMany(Inscricao::class);
+     }
 }

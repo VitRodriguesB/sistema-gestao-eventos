@@ -17,6 +17,8 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/eventos', [EventoController::class, 'index']);
 Route::get('/eventos/{evento}', [EventoController::class, 'show']);
+Route::post('/eventos/{evento}/inscrever', [InscricaoController::class, 'inscrever'])
+    ->name('eventos.inscrever');
 
 
 // ROTAS PARA VERIFICAÇÃO DE E-MAIL (CÓDIGO CORRIGIDO)
