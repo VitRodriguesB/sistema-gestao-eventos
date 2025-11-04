@@ -9,19 +9,16 @@ class Inscricao extends Model
 {
     use HasFactory;
 
+    /**
+     * Informa ao Laravel o nome correto da tabela.
+     */
+    protected $table = 'inscricoes'; // <-- ADICIONE ESTA LINHA
+
     protected $fillable = [
         'user_id',
         'evento_id',
         'status_pagamento',
     ];
 
-    public function usuario()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function evento()
-    {
-        return $this->belongsTo(Evento::class);
-    }
+    // ... (o resto do arquivo)
 }

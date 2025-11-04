@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\EventoController;
+use App\Http\Controllers\InscricaoController;
 use App\Models\User; // <-- Importamos o modelo User
 
 /*
@@ -17,7 +18,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/eventos', [EventoController::class, 'index']);
 Route::get('/eventos/{evento}', [EventoController::class, 'show']);
-Route::post('/eventos/{evento}/inscrever', [InscricaoController::class, 'inscrever'])
+Route::middleware('auth:sanctum')->post('/eventos/{evento}/inscrever', [InscricaoController::class, 'inscrever'])
     ->name('eventos.inscrever');
 
 
